@@ -118,7 +118,12 @@ const updateCaloriesText = () => {
 const updateCaloriesBar = () => {
     allCaloriesText.textContent = `Всего калорий: ${allCalories}`;
     const percent = (allCalories / totalCaloriesDay) * 100;
-    bar[0].style.height = `${percent}%`;
+    if(allCalories > totalCaloriesDay) {
+        bar[0].style.height = '100%';
+    } else {
+        bar[0].style.height = `${percent}%`;
+    }
+
 };
 
 const filterItems = (e) => {
@@ -137,3 +142,4 @@ if (arrProducts) {
 }
 
 filterInput.addEventListener("input", filterItems);
+
